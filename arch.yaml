@@ -1,0 +1,143 @@
+class_name: Sequential
+config:
+- class_name: Lambda
+  config:
+    arguments: {}
+    batch_input_shape: !!python/tuple [null, 160, 320, 3]
+    function: !!python/tuple ["\xE3\x01\0\0\0\0\0\0\0\x01\0\0\0\x02\0\0\0C\0\0\0s\f\
+        \0\0\0|\0\0d\x01\0\ed\x02\0\x18S)\x03Ng\0\0\0\0\0\xE0o@g\0\0\0\0\0\0\xE0?\xA9\
+        \0)\x01\xDA\x01xr\x01\0\0\0r\x01\0\0\0\xFA\bmodel.py\xDA\b<lambda>1\0\0\0\xF3\
+        \0\0\0\0", null, null]
+    function_type: lambda
+    input_dtype: float32
+    name: lambda_1
+    output_shape: null
+    output_shape_type: raw
+    trainable: true
+- class_name: Cropping2D
+  config:
+    cropping: !!python/tuple
+    - [60, 25]
+    - [0, 0]
+    name: cropping2d_1
+    trainable: true
+- class_name: Convolution2D
+  config:
+    W_constraint: null
+    W_regularizer: null
+    activation: linear
+    activity_regularizer: null
+    b_constraint: null
+    b_regularizer: null
+    bias: true
+    border_mode: valid
+    dim_ordering: tf
+    init: glorot_uniform
+    name: convolution2d_1
+    nb_col: 5
+    nb_filter: 6
+    nb_row: 5
+    subsample: !!python/tuple [1, 1]
+    trainable: true
+- class_name: Activation
+  config: {activation: relu, name: activation_1, trainable: true}
+- class_name: MaxPooling2D
+  config:
+    border_mode: valid
+    dim_ordering: tf
+    name: maxpooling2d_1
+    pool_size: !!python/tuple [2, 2]
+    strides: !!python/tuple [2, 2]
+    trainable: true
+- class_name: Convolution2D
+  config:
+    W_constraint: null
+    W_regularizer: null
+    activation: linear
+    activity_regularizer: null
+    b_constraint: null
+    b_regularizer: null
+    bias: true
+    border_mode: valid
+    dim_ordering: tf
+    init: glorot_uniform
+    name: convolution2d_2
+    nb_col: 5
+    nb_filter: 16
+    nb_row: 5
+    subsample: !!python/tuple [1, 1]
+    trainable: true
+- class_name: Activation
+  config: {activation: relu, name: activation_2, trainable: true}
+- class_name: MaxPooling2D
+  config:
+    border_mode: valid
+    dim_ordering: tf
+    name: maxpooling2d_2
+    pool_size: !!python/tuple [2, 2]
+    strides: !!python/tuple [2, 2]
+    trainable: true
+- class_name: Flatten
+  config: {name: flatten_1, trainable: true}
+- class_name: Dense
+  config:
+    W_constraint: null
+    W_regularizer: null
+    activation: linear
+    activity_regularizer: null
+    b_constraint: null
+    b_regularizer: null
+    batch_input_shape: !!python/tuple [null, 18480]
+    bias: true
+    init: glorot_uniform
+    input_dim: !!python/object/apply:numpy.core.multiarray.scalar
+    - !!python/object/apply:numpy.dtype
+      args: [i8, 0, 1]
+      state: !!python/tuple [3, <, null, null, null, -1, -1, 0]
+    - !!binary |
+      MEgAAAAAAAA=
+    input_dtype: float32
+    name: dense_1
+    output_dim: 120
+    trainable: true
+- class_name: Dropout
+  config: {name: dropout_1, p: 0.5, trainable: true}
+- class_name: Activation
+  config: {activation: relu, name: activation_3, trainable: true}
+- class_name: Dense
+  config:
+    W_constraint: null
+    W_regularizer: null
+    activation: linear
+    activity_regularizer: null
+    b_constraint: null
+    b_regularizer: null
+    batch_input_shape: !!python/tuple [null, 120]
+    bias: true
+    init: glorot_uniform
+    input_dim: 120
+    input_dtype: float32
+    name: dense_2
+    output_dim: 84
+    trainable: true
+- class_name: Dropout
+  config: {name: dropout_2, p: 0.5, trainable: true}
+- class_name: Activation
+  config: {activation: relu, name: activation_4, trainable: true}
+- class_name: Dense
+  config:
+    W_constraint: null
+    W_regularizer: null
+    activation: linear
+    activity_regularizer: null
+    b_constraint: null
+    b_regularizer: null
+    batch_input_shape: !!python/tuple [null, 84]
+    bias: true
+    init: glorot_uniform
+    input_dim: 84
+    input_dtype: float32
+    name: dense_3
+    output_dim: 1
+    trainable: true
+keras_version: 1.2.1
